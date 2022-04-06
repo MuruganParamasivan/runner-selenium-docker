@@ -8,12 +8,12 @@ pipeline{
 		}
 		stage("Start Grid"){
 			steps{
-				sh "docker-compose up -d hub chrome firefox"
+				sh "docker-compose up ${GridHubNodeCmd}"
 			}
 		}
 		stage("Run Test"){
 			steps{
-				sh "docker-compose up search-module book-flight-module"
+				sh "docker-compose up ${SuiteFiles}"
 			}
 		}
 	}
